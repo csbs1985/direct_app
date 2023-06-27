@@ -16,6 +16,12 @@ class UiTexto {
 }
 
 class UiTextoClaro {
+  static const TextStyle identidade = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.normal,
+    color: UiCor.icone,
+  );
+
   static const TextStyle primeiroButton = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
@@ -42,6 +48,12 @@ class UiTextoClaro {
 }
 
 class UiTextoEscuro {
+  static const TextStyle identidade = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.normal,
+    color: UiCor.iconeEscuro,
+  );
+
   static const TextStyle primeiroButton = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,

@@ -1,3 +1,4 @@
+import 'package:direct_app/appbar/inicio_appbar.dart';
 import 'package:direct_app/button/primeiro_button.dart';
 import 'package:direct_app/button/segundo_button.dart';
 import 'package:direct_app/config/constant_config.dart';
@@ -17,7 +18,7 @@ class _InicioPageState extends State<InicioPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(),
+      appBar: const InicioAppbar(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(16),

@@ -20,6 +20,7 @@ class UiTema {
       secondary: UiCor.icone,
       onPrimary: UiCor.borda,
     ),
+    iconTheme: const IconThemeData(color: UiCor.icone),
     navigationBarTheme: const NavigationBarThemeData(
         backgroundColor: UiCor.fundo, elevation: 0),
     scaffoldBackgroundColor: UiCor.fundo,
@@ -28,6 +29,7 @@ class UiTema {
       displayMedium: UiTextoClaro.texto,
       displaySmall: UiTextoClaro.hint,
       labelLarge: UiTextoClaro.primeiroButton,
+      labelMedium: UiTextoClaro.identidade,
     ),
   );
 
@@ -46,6 +48,7 @@ class UiTema {
       secondary: UiCor.iconeEscuro,
       onPrimary: UiCor.bordaEscura,
     ),
+    iconTheme: const IconThemeData(color: UiCor.iconeEscuro),
     navigationBarTheme: const NavigationBarThemeData(
       backgroundColor: UiCor.fundoEscuro,
       elevation: 0,
@@ -56,6 +59,7 @@ class UiTema {
       displayMedium: UiTextoEscuro.texto,
       displaySmall: UiTextoEscuro.hint,
       labelLarge: UiTextoEscuro.primeiroButton,
+      labelMedium: UiTextoEscuro.identidade,
     ),
   );
 }

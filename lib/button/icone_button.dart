@@ -1,5 +1,4 @@
 import 'package:direct_app/theme/ui_borda.dart';
-import 'package:direct_app/theme/ui_cor.dart';
 import 'package:direct_app/theme/ui_tamanho.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +27,7 @@ class _IconeButtonState extends State<IconeButton> {
         borderRadius: BorderRadius.circular(UiBorda.circulo),
         child: Icon(
           widget._icone,
-          color: UiCor.iconeEscuro,
+          color: Theme.of(context).iconTheme.color,
         ),
         onTap: () => widget._callback(),
       ),
