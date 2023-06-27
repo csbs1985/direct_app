@@ -4,6 +4,9 @@ class UiCor {
   static const Color borda = Color(0xFFe9edef);
   static const Color bordaEscura = Color(0xFF2A3942);
 
+  static const Color celularButton = Color(0xFFE9E8EC);
+  static const Color celularButtonEscuro = Color(0xFF2A3942);
+
   static const Color segundoButton = Colors.transparent;
   static const Color segundoButtonAtivo = Colors.black26;
 
@@ -21,7 +24,7 @@ class UiCor {
   static const Color icone = Color(0xFF54656F);
   static const Color iconeEscuro = Color(0xFFaebac1);
 
-  static const Color input = Color(0xFFF0F2F5);
+  static const Color input = Color(0xFFE9E8EC);
   static const Color inputEscuro = Color(0xFF2A3942);
 
   static const Color overlay = Color(0x90000000);

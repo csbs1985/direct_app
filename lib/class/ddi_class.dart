@@ -5,6 +5,18 @@ class DdiClass {
     String output = value.replaceAll(' ', '').replaceAll('+', '');
     return output;
   }
+
+  String formatarTelefone(int numero) {
+    String numeroString = numero.toString();
+
+    if (numeroString.length == 10) {
+      return '(${numeroString.substring(0, 2)}) ${numeroString.substring(2, 6)}-${numeroString.substring(6)}';
+    } else if (numeroString.length == 11) {
+      return '(${numeroString.substring(0, 2)}) ${numeroString.substring(2, 7)}-${numeroString.substring(7)}';
+    } else {
+      return numeroString;
+    }
+  }
 }
 
 final List<DdiModel> listaDdi = [
