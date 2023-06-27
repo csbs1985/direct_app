@@ -27,7 +27,7 @@ class _PrimeiroButtonState extends State<PrimeiroButton> {
       onTapDown: (_) => setState(() => isPressed = true),
       onTapUp: (_) => setState(() => isPressed = false),
       onTapCancel: () => setState(() => isPressed = false),
-      onTap: () => widget._callback,
+      onTap: () => widget._callback(),
       child: Container(
         height: UiTamanho.botao,
         padding: const EdgeInsets.symmetric(horizontal: 24),

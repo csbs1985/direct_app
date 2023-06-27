@@ -1,10 +1,13 @@
 import 'package:direct_app/appbar/inicio_appbar.dart';
 import 'package:direct_app/button/primeiro_button.dart';
 import 'package:direct_app/button/segundo_button.dart';
+import 'package:direct_app/class/ddi_class.dart';
 import 'package:direct_app/config/constant_config.dart';
+import 'package:direct_app/config/value_notifier_config.dart';
 import 'package:direct_app/input/celular_input.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class InicioPage extends StatefulWidget {
   const InicioPage({super.key});
@@ -14,6 +17,20 @@ class InicioPage extends StatefulWidget {
 }
 
 class _InicioPageState extends State<InicioPage> {
+  final DdiClass _ddiClass = DdiClass();
+
+  String phoneNumber = "11 979837936";
+
+  void _iniciarChat() async {
+    final String numeroFomatado =
+        _ddiClass.limparDdi(currentDdi.value.ddi + phoneNumber);
+    Uri url = Uri.parse('whatsapp://send?phone=$numeroFomatado');
+
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +54,7 @@ class _InicioPageState extends State<InicioPage> {
                   ),
                   const SizedBox(width: 16),
                   PrimeiroButton(
-                    callback: () => {},
+                    callback: () => _iniciarChat(),
                     texto: INICAR_CHAT,
                   ),
                 ],

@@ -1,5 +1,12 @@
 import 'package:direct_app/model/ddi_model.dart';
 
+class DdiClass {
+  String limparDdi(String value) {
+    String output = value.replaceAll(' ', '').replaceAll('+', '');
+    return output;
+  }
+}
+
 final List<DdiModel> listaDdi = [
   DdiModel(
     nome: "Afghanistan",
