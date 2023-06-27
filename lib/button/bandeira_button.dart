@@ -2,6 +2,7 @@ import 'package:direct_app/config/value_notifier_config.dart';
 import 'package:direct_app/modal/ddi_modal.dart';
 import 'package:direct_app/model/ddi_model.dart';
 import 'package:direct_app/text/texto_text.dart';
+import 'package:direct_app/theme/ui_borda.dart';
 import 'package:direct_app/theme/ui_cor.dart';
 import 'package:direct_app/theme/ui_tamanho.dart';
 import 'package:flutter/material.dart';
@@ -36,10 +37,13 @@ class _BandeiraButtonState extends State<BandeiraButton> {
       onTap: () => _abrirModal(context),
       child: Container(
         height: UiTamanho.input,
-        padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-        color: isPressed
-            ? Theme.of(context).colorScheme.secondary
-            : Colors.transparent,
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+        decoration: BoxDecoration(
+          color: isPressed == true
+              ? UiCor.principal
+              : Theme.of(context).colorScheme.onPrimaryContainer,
+          borderRadius: UiBorda.celularButton,
+        ),
         child: ValueListenableBuilder(
           valueListenable: currentDdi,
           builder: (BuildContext context, DdiModel ddi, _) {

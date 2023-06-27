@@ -7,7 +7,6 @@ import 'package:direct_app/config/constant_config.dart';
 import 'package:direct_app/config/value_notifier_config.dart';
 import 'package:direct_app/input/celular_input.dart';
 import 'package:direct_app/mixin/validator_mixin.dart';
-import 'package:direct_app/model/ddi_model.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -22,13 +21,14 @@ class InicioPage extends StatefulWidget {
 class _InicioPageState extends State<InicioPage> with ValidatorMixin {
   final DdiClass _ddiClass = DdiClass();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _controller = TextEditingController();
 
-  String phoneNumber = "11 979837936";
+  String telefone = "";
 
   void _iniciarChat() async {
     if (_formKey.currentState!.validate()) {
       final String numeroFomatado =
-          _ddiClass.limparDdi(currentDdi.value.ddi + phoneNumber);
+          _ddiClass.limparDdi(currentDdi.value.ddi + telefone);
       Uri url = Uri.parse('whatsapp://send?phone=$numeroFomatado');
 
       if (!await launchUrl(url)) {
@@ -37,10 +37,16 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
     }
   }
 
+  void _limparNumero() {
+    setState(() {
+      telefone = "";
+      _controller.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: const InicioAppbar(),
       body: SingleChildScrollView(
         child: Container(
@@ -52,18 +58,13 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
               Form(
                 key: _formKey,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ValueListenableBuilder(
-                      valueListenable: currentDdi,
-                      builder: (BuildContext context, DdiModel ddi, _) {
-                        return const BandeiraButton();
-                      },
-                    ),
+                    const BandeiraButton(),
                     Expanded(
                       child: CelularInput(
-                        callback: (value) =>
-                            setState(() => phoneNumber = value),
+                        controller: _controller,
+                        callback: (value) => setState(() => telefone = value),
                         hintText: INICIO_HINT,
                         keyboardType: TextInputType.phone,
                         validator: (value) => combinarValidacao([
@@ -75,23 +76,25 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  SegundoButton(
-                    callback: () => {},
-                    texto: CANCELAR,
-                  ),
-                  const SizedBox(width: 16),
-                  PrimeiroButton(
-                    callback: () => _iniciarChat(),
-                    texto: INICAR_CHAT,
-                  ),
-                ],
-              ),
             ],
           ),
+        ),
+      ),
+      bottomSheet: Container(
+        padding: const EdgeInsets.fromLTRB(0, 0, 16, 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            SegundoButton(
+              callback: () => _limparNumero(),
+              texto: CANCELAR,
+            ),
+            const SizedBox(width: 16),
+            PrimeiroButton(
+              callback: () => _iniciarChat(),
+              texto: INICAR_CHAT,
+            ),
+          ],
         ),
       ),
     );

@@ -11,6 +11,7 @@ class UiTema {
       elevation: 0,
     ),
     brightness: Brightness.light,
+    bottomSheetTheme: const BottomSheetThemeData(backgroundColor: UiCor.fundo),
     bottomNavigationBarTheme:
         const BottomNavigationBarThemeData(backgroundColor: UiCor.fundo),
     colorScheme: const ColorScheme.light(
@@ -19,10 +20,13 @@ class UiTema {
       onPrimaryContainer: UiCor.input,
       secondary: UiCor.icone,
       onPrimary: UiCor.borda,
+      onSecondary: UiCor.textoEscuro,
     ),
     iconTheme: const IconThemeData(color: UiCor.icone),
     navigationBarTheme: const NavigationBarThemeData(
-        backgroundColor: UiCor.fundo, elevation: 0),
+      backgroundColor: UiCor.fundo,
+      elevation: 0,
+    ),
     scaffoldBackgroundColor: UiCor.fundo,
     textTheme: const TextTheme(
       displayLarge: UiTextoClaro.titulo,
@@ -38,6 +42,8 @@ class UiTema {
       backgroundColor: Colors.transparent,
       elevation: 0,
     ),
+    bottomSheetTheme:
+        const BottomSheetThemeData(backgroundColor: UiCor.fundoEscuro),
     bottomNavigationBarTheme:
         const BottomNavigationBarThemeData(backgroundColor: UiCor.fundoEscuro),
     brightness: Brightness.dark,
@@ -47,6 +53,7 @@ class UiTema {
       onPrimaryContainer: UiCor.inputEscuro,
       secondary: UiCor.iconeEscuro,
       onPrimary: UiCor.bordaEscura,
+      onSecondary: UiCor.texto,
     ),
     iconTheme: const IconThemeData(color: UiCor.iconeEscuro),
     navigationBarTheme: const NavigationBarThemeData(

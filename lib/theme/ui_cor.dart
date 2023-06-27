@@ -31,6 +31,8 @@ class UiCor {
 
   static const Color principal = Color(0xFF00A884);
 
+  static const Color sucesso = Color(0xFF00A884);
+
   static const Color texto = Color(0xFF111b21);
   static const Color textoEscuro = Color(0xffe9edef);
 }

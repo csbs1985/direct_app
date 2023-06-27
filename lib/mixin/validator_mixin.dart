@@ -7,7 +7,7 @@ mixin ValidatorMixin {
   }
 
   String? tamanhoCelular(String value) {
-    if (value.length != 15) return CELULAR_TAMANHO;
+    if (value.length != 15) return CELULAR_INVALIDO;
     return null;
   }
 

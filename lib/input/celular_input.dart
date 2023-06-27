@@ -1,5 +1,5 @@
 import 'package:direct_app/class/ddi_class.dart';
-import 'package:direct_app/theme/ui_outline.dart';
+import 'package:direct_app/theme/ui_borda.dart';
 import 'package:direct_app/theme/ui_texto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,7 +38,7 @@ class CelularInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: TextFormField(
-        autofocus: autoFocus!,
+        autofocus: true,
         controller: controller,
         expands: expands!,
         focusNode: focusNode,
@@ -62,13 +62,10 @@ class CelularInput extends StatelessWidget {
           fillColor: Theme.of(context).colorScheme.onPrimaryContainer,
           hintStyle: Theme.of(context).textTheme.displaySmall,
           errorStyle: UiTexto.erro,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 0,
-            vertical: 8,
-          ),
-          border: UiOutline.celularInput,
-          enabledBorder: UiOutline.celularInput,
-          focusedBorder: UiOutline.celularInput,
+          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+          border: UiBorda.celularInput,
+          enabledBorder: UiBorda.celularInput,
+          focusedBorder: UiBorda.celularInput,
         ),
       ),
     );

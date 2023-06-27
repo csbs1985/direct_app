@@ -1,6 +1,8 @@
 import 'package:direct_app/button/icone_button.dart';
+import 'package:direct_app/class/routes_class.dart';
 import 'package:direct_app/config/constant_config.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class InicioAppbar extends StatefulWidget implements PreferredSizeWidget {
   const InicioAppbar({super.key});
@@ -34,7 +36,7 @@ class _InicioAppbarState extends State<InicioAppbar> {
           icone: Icons.history,
         ),
         IconeButton(
-          callback: () => {},
+          callback: () => context.push(RoutesEnum.DOAR.value),
           icone: Icons.favorite_border,
         ),
       ],

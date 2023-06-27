@@ -1,4 +1,4 @@
-import 'package:direct_app/page/inicio_page.dart';
+import 'package:direct_app/config/routes_config.dart';
 import 'package:direct_app/theme/ui_tema.dart';
 import 'package:flutter/material.dart';
 
@@ -16,11 +16,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: UiTema.tema,
       darkTheme: UiTema.temaEscuro,
-      home: const InicioPage(),
+      routerDelegate: routes.routerDelegate,
+      routeInformationParser: routes.routeInformationParser,
+      routeInformationProvider: routes.routeInformationProvider,
     );
   }
 }

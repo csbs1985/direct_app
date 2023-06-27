@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  go_router: ^7.1.1
+  m_toast: ^0.2.0
   modal_bottom_sheet: ^3.0.0-pre
   url_launcher: ^6.1.11
 
