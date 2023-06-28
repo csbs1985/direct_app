@@ -18,7 +18,7 @@ dependencies:
   m_toast: ^0.2.0
   mask_text_input_formatter: ^2.4.0
   modal_bottom_sheet: ^3.0.0-pre
-  social_share: ^2.3.1
+  share_plus: ^7.0.2
   url_launcher: ^6.1.11
   uuid: ^3.0.7
 

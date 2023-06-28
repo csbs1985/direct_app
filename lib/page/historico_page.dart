@@ -7,7 +7,7 @@ import 'package:direct_app/text/texto2_text.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:direct_app/widget/historico_vazio_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:social_share/social_share.dart';
+import 'package:share_plus/share_plus.dart';
 
 class HistoricoPage extends StatefulWidget {
   const HistoricoPage({super.key});
@@ -69,8 +69,8 @@ class _HistoricoPageState extends State<HistoricoPage> {
                               ),
                             ),
                             IconeButton(
-                              callback: () => SocialShare.shareOptions(
-                                  _listaHive[index]['numero']),
+                              callback: () =>
+                                  Share.share(_listaHive[index]['numero']),
                               icone: Icons.share,
                             ),
                             IconeButton(

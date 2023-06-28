@@ -3,7 +3,7 @@ import 'package:direct_app/class/routes_class.dart';
 import 'package:direct_app/config/constant_config.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:social_share/social_share.dart';
+import 'package:share_plus/share_plus.dart';
 
 class InicioAppbar extends StatefulWidget implements PreferredSizeWidget {
   const InicioAppbar({super.key});
@@ -25,7 +25,7 @@ class _InicioAppbarState extends State<InicioAppbar> {
       ),
       actions: [
         IconeAppbarButton(
-          callback: () => SocialShare.shareOptions(
+          callback: () => Share.share(
               "Esta é minha conta whatsapp https://api.whatsapp.com/send?1=pt_BR&phone=5511979837936"),
           icone: Icons.contact_phone,
         ),
