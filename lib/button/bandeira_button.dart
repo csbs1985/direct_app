@@ -1,5 +1,5 @@
 import 'package:direct_app/config/value_notifier_config.dart';
-import 'package:direct_app/modal/ddi_modal.dart';
+import 'package:direct_app/modal/pais_modal.dart';
 import 'package:direct_app/model/ddi_model.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:direct_app/theme/ui_borda.dart';
@@ -19,10 +19,12 @@ class _BandeiraButtonState extends State<BandeiraButton> {
   void _abrirModal(BuildContext context) {
     showCupertinoModalBottomSheet(
       expand: true,
+      duration: const Duration(milliseconds: 300),
       context: context,
       barrierColor: UiCor.overlay,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      builder: (context) => const DdiModal(),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(UiBorda.arredondada)),
+      builder: (context) => const PaisModal(),
     );
   }
 
@@ -46,7 +48,7 @@ class _BandeiraButtonState extends State<BandeiraButton> {
         ),
         child: ValueListenableBuilder(
           valueListenable: currentDdi,
-          builder: (BuildContext context, DdiModel ddi, _) {
+          builder: (BuildContext context, PaisModel ddi, _) {
             return Row(
               children: [
                 TextoText(texto: ddi.bandeira),

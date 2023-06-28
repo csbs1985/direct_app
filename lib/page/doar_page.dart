@@ -2,7 +2,6 @@ import 'package:direct_app/appbar/voltar_appbar.dart';
 import 'package:direct_app/button/primeiro_button.dart';
 import 'package:direct_app/class/toast_class.dart';
 import 'package:direct_app/config/constant_config.dart';
-import 'package:direct_app/text/subtitulo_text.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,23 +27,18 @@ class _DoarPageState extends State<DoarPage> {
       appBar: const VoltarAppbar(),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-          child: const Column(
+          padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SubtituloText(texto: DOAR),
-              SizedBox(height: 16),
-              TextoText(texto: DOAR_DESCRICAO),
-              SizedBox(height: 72),
+              const TextoText(texto: DOAR_DESCRICAO),
+              const SizedBox(height: 24),
+              PrimeiroButton(
+                callback: () => _copiarPix(context),
+                texto: DOAR_BUTTON,
+              ),
             ],
           ),
-        ),
-      ),
-      bottomSheet: Container(
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-        child: PrimeiroButton(
-          callback: () => _copiarPix(context),
-          texto: DOAR_BUTTON,
         ),
       ),
     );

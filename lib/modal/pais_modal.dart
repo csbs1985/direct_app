@@ -1,22 +1,32 @@
 import 'package:direct_app/appbar/modal_appbar.dart';
 import 'package:direct_app/class/texto_class.dart';
-import 'package:direct_app/config/constant_config.dart';
 import 'package:direct_app/config/value_notifier_config.dart';
+import 'package:direct_app/mock/lista_pais.dart';
 import 'package:direct_app/model/ddi_model.dart';
-import 'package:direct_app/text/subtitulo_text.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:direct_app/theme/ui_cor.dart';
+import 'package:direct_app/theme/ui_tamanho.dart';
 import 'package:flutter/material.dart';
 
-class DdiModal extends StatefulWidget {
-  const DdiModal({super.key});
+class PaisModal extends StatefulWidget {
+  const PaisModal({super.key});
 
   @override
-  State<DdiModal> createState() => _DdiModalState();
+  State<PaisModal> createState() => _PaisModalState();
 }
 
-class _DdiModalState extends State<DdiModal> {
-  void _selecionarDdi(DdiModel item) {
+class _PaisModalState extends State<PaisModal> {
+  final TextoClass _textoClass = TextoClass();
+
+  List<PaisModel> _listaPaises = [];
+
+  @override
+  void initState() {
+    _listaPaises = _textoClass.ordenarPorNome(listaPais);
+    super.initState();
+  }
+
+  void _selecionarDdi(PaisModel item) {
     setState(() => currentDdi.value = item);
     Navigator.of(context).pop();
   }
@@ -29,29 +39,27 @@ class _DdiModalState extends State<DdiModal> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-              child: const SubtituloText(texto: SELECIONE),
-            ),
+            const SizedBox(height: 8),
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: listaDdi.length,
+              itemCount: _listaPaises.length,
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: () => _selecionarDdi(listaDdi[index]),
+                  onTap: () => _selecionarDdi(_listaPaises[index]),
                   child: Container(
-                    color: currentDdi.value.codigo == listaDdi[index].codigo
+                    color: currentDdi.value.codigo == _listaPaises[index].codigo
                         ? UiCor.principal
                         : null,
                     padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                    height: 48,
+                    height: UiTamanho.lista,
                     child: Row(
                       children: [
-                        TextoText(texto: listaDdi[index].bandeira),
+                        TextoText(texto: _listaPaises[index].bandeira),
                         const SizedBox(width: 16),
-                        Expanded(child: TextoText(texto: listaDdi[index].nome)),
-                        TextoText(texto: listaDdi[index].ddi),
+                        Expanded(
+                            child: TextoText(texto: _listaPaises[index].nome)),
+                        TextoText(texto: _listaPaises[index].ddi),
                       ],
                     ),
                   ),

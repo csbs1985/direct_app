@@ -1,7 +1,7 @@
 import 'package:direct_app/model/ddi_model.dart';
 import 'package:flutter/material.dart';
 
-final ValueNotifier<DdiModel> currentDdi = ValueNotifier<DdiModel>(DdiModel(
+final ValueNotifier<PaisModel> currentDdi = ValueNotifier<PaisModel>(PaisModel(
   nome: "Brazil",
   bandeira: "🇧🇷",
   codigo: "BR",

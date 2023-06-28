@@ -26,8 +26,8 @@ class _InicioAppbarState extends State<InicioAppbar> {
       actions: [
         IconeAppbarButton(
           callback: () => SocialShare.shareOptions(
-              'check out my website https://google.com'),
-          icone: Icons.folder_shared,
+              "Esta é minha conta whatsapp https://api.whatsapp.com/send?1=pt_BR&phone=5511979837936"),
+          icone: Icons.contact_phone,
         ),
         IconeAppbarButton(
           callback: () => context.push(RoutesEnum.HISTORICO.value),

@@ -1,10 +1,10 @@
-class DdiModel {
+class PaisModel {
   final String nome;
   final String bandeira;
   final String codigo;
   final String ddi;
 
-  DdiModel({
+  PaisModel({
     required this.nome,
     required this.bandeira,
     required this.codigo,
