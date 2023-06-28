@@ -17,7 +17,11 @@ class UiTema {
 
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
+        statusBarIconBrightness: isEscuro ? Brightness.light : Brightness.dark,
+        statusBarBrightness: isEscuro ? Brightness.light : Brightness.dark,
         statusBarColor: isEscuro ? UiCor.statusBarEscura : UiCor.statusBar,
+        systemNavigationBarIconBrightness:
+            isEscuro ? Brightness.light : Brightness.dark,
         systemNavigationBarColor:
             isEscuro ? UiCor.navigationBarEscuro : UiCor.navigationBar,
       ),

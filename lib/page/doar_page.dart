@@ -24,7 +24,7 @@ class _DoarPageState extends State<DoarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const VoltarAppbar(),
+      appBar: const VoltarAppbar(texto: DOAR),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),

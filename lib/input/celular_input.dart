@@ -1,8 +1,8 @@
-import 'package:direct_app/class/texto_class.dart';
 import 'package:direct_app/theme/ui_borda.dart';
 import 'package:direct_app/theme/ui_texto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CelularInput extends StatelessWidget {
   final bool? autoFocus;
@@ -52,8 +52,12 @@ class CelularInput extends StatelessWidget {
         textAlignVertical: TextAlignVertical.center,
         validator: validator,
         inputFormatters: [
-          FilteringTextInputFormatter.digitsOnly,
-          TelefoneInputFormatter(),
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+          LengthLimitingTextInputFormatter(11),
+          MaskTextInputFormatter(
+            mask: '(##) ##### ####',
+            type: MaskAutoCompletionType.lazy,
+          )
         ],
         decoration: InputDecoration(
           counterStyle: Theme.of(context).textTheme.headlineSmall,
@@ -67,21 +71,6 @@ class CelularInput extends StatelessWidget {
           focusedBorder: UiBorda.celularInput,
         ),
       ),
-    );
-  }
-}
-
-class TelefoneInputFormatter extends TextInputFormatter {
-  final TextoClass _TextoClass = TextoClass();
-
-  @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
-    final formattedValue =
-        _TextoClass.formatarTelefone(int.tryParse(newValue.text) ?? 0);
-    return TextEditingValue(
-      text: formattedValue,
-      selection: TextSelection.collapsed(offset: formattedValue.length),
     );
   }
 }

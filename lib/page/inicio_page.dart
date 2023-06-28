@@ -2,16 +2,13 @@ import 'package:direct_app/appbar/inicio_appbar.dart';
 import 'package:direct_app/button/bandeira_button.dart';
 import 'package:direct_app/button/primeiro_button.dart';
 import 'package:direct_app/button/segundo_button.dart';
-import 'package:direct_app/class/texto_class.dart';
+import 'package:direct_app/class/telefone_class.dart';
 import 'package:direct_app/config/constant_config.dart';
 import 'package:direct_app/config/value_notifier_config.dart';
-import 'package:direct_app/hive/historico_hive.dart';
 import 'package:direct_app/input/celular_input.dart';
 import 'package:direct_app/mixin/validator_mixin.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:uuid/uuid.dart';
 
 class InicioPage extends StatefulWidget {
   const InicioPage({super.key});
@@ -21,27 +18,16 @@ class InicioPage extends StatefulWidget {
 }
 
 class _InicioPageState extends State<InicioPage> with ValidatorMixin {
-  final TextoClass _textoClass = TextoClass();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final HistoricoHive _historicoHive = HistoricoHive();
+  final TelefoneClass _telefoneClass = TelefoneClass();
   final TextEditingController _controller = TextEditingController();
-  final Uuid uuid = const Uuid();
 
   String telefone = "";
 
   void _iniciarChat() async {
     if (_formKey.currentState!.validate()) {
-      final String numeroFomatado =
-          _textoClass.limparDdi(currentDdi.value.ddi + telefone);
-      Uri url = Uri.parse('whatsapp://send?phone=$numeroFomatado');
-
-      if (await launchUrl(url)) {
-        _historicoHive.salvarHistorico({
-          "numero": numeroFomatado,
-          "dataRegistro": DateTime.now().toString(),
-          "idHistorico": uuid.v4(),
-        });
-      }
+      String completo = "${currentDdi.value.ddi} $telefone";
+      _telefoneClass.iniciarChat(completo, true);
     }
   }
 
