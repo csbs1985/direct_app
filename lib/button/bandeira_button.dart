@@ -26,10 +26,10 @@ class _BandeiraButtonState extends State<BandeiraButton> {
     );
   }
 
+  bool isPressed = false;
+
   @override
   Widget build(BuildContext context) {
-    bool isPressed = false;
-
     return GestureDetector(
       onTapDown: (_) => setState(() => isPressed = true),
       onTapUp: (_) => setState(() => isPressed = false),
@@ -39,7 +39,7 @@ class _BandeiraButtonState extends State<BandeiraButton> {
         height: UiTamanho.input,
         padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
         decoration: BoxDecoration(
-          color: isPressed == true
+          color: isPressed
               ? UiCor.principal
               : Theme.of(context).colorScheme.onPrimaryContainer,
           borderRadius: UiBorda.celularButton,

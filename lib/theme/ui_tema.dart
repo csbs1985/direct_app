@@ -7,13 +7,14 @@ ValueNotifier<Brightness> currentTema = ValueNotifier(Brightness.light);
 class UiTema {
   static ThemeData tema = ThemeData(
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
+      backgroundColor: UiCor.appbar,
       elevation: 0,
+      iconTheme: IconThemeData(color: UiCor.iconeAppBar),
     ),
     brightness: Brightness.light,
     bottomSheetTheme: const BottomSheetThemeData(backgroundColor: UiCor.fundo),
-    bottomNavigationBarTheme:
-        const BottomNavigationBarThemeData(backgroundColor: UiCor.fundo),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: UiCor.navigationBar),
     colorScheme: const ColorScheme.light(
       background: UiCor.fundo,
       primary: UiCor.principal,
@@ -34,18 +35,20 @@ class UiTema {
       displaySmall: UiTextoClaro.hint,
       labelLarge: UiTextoClaro.primeiroButton,
       labelMedium: UiTextoClaro.identidade,
+      labelSmall: UiTextoClaro.texto2,
     ),
   );
 
   static ThemeData temaEscuro = ThemeData(
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
+      backgroundColor: UiCor.appbarEscura,
       elevation: 0,
+      iconTheme: IconThemeData(color: UiCor.iconeAppBarEscuro),
     ),
     bottomSheetTheme:
         const BottomSheetThemeData(backgroundColor: UiCor.fundoEscuro),
-    bottomNavigationBarTheme:
-        const BottomNavigationBarThemeData(backgroundColor: UiCor.fundoEscuro),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: UiCor.navigationBarEscuro),
     brightness: Brightness.dark,
     colorScheme: const ColorScheme.dark(
       background: UiCor.fundoEscuro,
@@ -67,6 +70,7 @@ class UiTema {
       displaySmall: UiTextoEscuro.hint,
       labelLarge: UiTextoEscuro.primeiroButton,
       labelMedium: UiTextoEscuro.identidade,
+      labelSmall: UiTextoEscuro.texto2,
     ),
   );
 }

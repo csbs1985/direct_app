@@ -1,8 +1,11 @@
+import 'package:direct_app/config/hive_config.dart';
 import 'package:direct_app/config/routes_config.dart';
 import 'package:direct_app/theme/ui_tema.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  await HiveConfig.start();
+
   runApp(const MyApp());
 }
 

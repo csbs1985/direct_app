@@ -28,7 +28,7 @@ class _DoarPageState extends State<DoarPage> {
       appBar: const VoltarAppbar(),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
           child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

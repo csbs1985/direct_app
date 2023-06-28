@@ -1,8 +1,9 @@
-import 'package:direct_app/button/icone_button.dart';
+import 'package:direct_app/button/icone_appbar_button.dart';
 import 'package:direct_app/class/routes_class.dart';
 import 'package:direct_app/config/constant_config.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:social_share/social_share.dart';
 
 class InicioAppbar extends StatefulWidget implements PreferredSizeWidget {
   const InicioAppbar({super.key});
@@ -23,21 +24,18 @@ class _InicioAppbarState extends State<InicioAppbar> {
         style: Theme.of(context).textTheme.labelMedium,
       ),
       actions: [
-        IconeButton(
-          callback: () => {},
-          icone: Icons.mobile_screen_share,
+        IconeAppbarButton(
+          callback: () => SocialShare.shareOptions(
+              'check out my website https://google.com'),
+          icone: Icons.folder_shared,
         ),
-        IconeButton(
-          callback: () => {},
-          icone: Icons.share,
-        ),
-        IconeButton(
-          callback: () => {},
+        IconeAppbarButton(
+          callback: () => context.push(RoutesEnum.HISTORICO.value),
           icone: Icons.history,
         ),
-        IconeButton(
+        IconeAppbarButton(
           callback: () => context.push(RoutesEnum.DOAR.value),
-          icone: Icons.favorite_border,
+          icone: Icons.favorite,
         ),
       ],
     );

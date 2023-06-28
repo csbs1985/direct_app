@@ -1,5 +1,5 @@
 import 'package:direct_app/appbar/modal_appbar.dart';
-import 'package:direct_app/class/ddi_class.dart';
+import 'package:direct_app/class/texto_class.dart';
 import 'package:direct_app/config/constant_config.dart';
 import 'package:direct_app/config/value_notifier_config.dart';
 import 'package:direct_app/model/ddi_model.dart';
@@ -29,9 +29,9 @@ class _DdiModalState extends State<DdiModal> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.all(16),
-              child: SubtituloText(texto: SELECIONE),
+            Container(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+              child: const SubtituloText(texto: SELECIONE),
             ),
             ListView.builder(
               shrinkWrap: true,

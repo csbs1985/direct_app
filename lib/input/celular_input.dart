@@ -1,4 +1,4 @@
-import 'package:direct_app/class/ddi_class.dart';
+import 'package:direct_app/class/texto_class.dart';
 import 'package:direct_app/theme/ui_borda.dart';
 import 'package:direct_app/theme/ui_texto.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +62,7 @@ class CelularInput extends StatelessWidget {
           fillColor: Theme.of(context).colorScheme.onPrimaryContainer,
           hintStyle: Theme.of(context).textTheme.displaySmall,
           errorStyle: UiTexto.erro,
-          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+          contentPadding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
           border: UiBorda.celularInput,
           enabledBorder: UiBorda.celularInput,
           focusedBorder: UiBorda.celularInput,
@@ -73,13 +73,13 @@ class CelularInput extends StatelessWidget {
 }
 
 class TelefoneInputFormatter extends TextInputFormatter {
-  final DdiClass _ddiClass = DdiClass();
+  final TextoClass _TextoClass = TextoClass();
 
   @override
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue, TextEditingValue newValue) {
     final formattedValue =
-        _ddiClass.formatarTelefone(int.tryParse(newValue.text) ?? 0);
+        _TextoClass.formatarTelefone(int.tryParse(newValue.text) ?? 0);
     return TextEditingValue(
       text: formattedValue,
       selection: TextSelection.collapsed(offset: formattedValue.length),

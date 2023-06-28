@@ -1,6 +1,7 @@
 import 'package:direct_app/model/ddi_model.dart';
+import 'package:intl/intl.dart';
 
-class DdiClass {
+class TextoClass {
   String limparDdi(String value) {
     String output = value.replaceAll(' ', '').replaceAll('+', '');
     return output;
@@ -16,6 +17,23 @@ class DdiClass {
     } else {
       return numeroString;
     }
+  }
+
+  String formatarTelefoneCompleto(String value) {
+    value = value.trim();
+    value = '+$value';
+    value = value.replaceAll('(', ' (');
+    value = value.replaceAll(')', ') ');
+    return value;
+  }
+
+  String formatarData(String value) {
+    DateTime dateTime = DateTime.parse(value);
+
+    String formattedDate =
+        DateFormat("dd MMM. 'de' yyyy 'às' HH'h'mm'm'").format(dateTime);
+
+    return formattedDate;
   }
 }
 
