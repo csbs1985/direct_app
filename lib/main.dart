@@ -16,16 +16,34 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    UiTema.definirTema();
+    super.initState();
+  }
+
+  @override
+  void didChangePlatformBrightness() {
+    UiTema.definirTema();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: UiTema.tema,
-      darkTheme: UiTema.temaEscuro,
-      routerDelegate: routes.routerDelegate,
-      routeInformationParser: routes.routeInformationParser,
-      routeInformationProvider: routes.routeInformationProvider,
+    return ValueListenableBuilder(
+      valueListenable: currentTema,
+      builder: (BuildContext context, Brightness tema, _) {
+        bool isEscuro = tema == Brightness.dark;
+
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          theme: isEscuro ? UiTema.temaEscuro : UiTema.tema,
+          routerDelegate: routes.routerDelegate,
+          routeInformationParser: routes.routeInformationParser,
+          routeInformationProvider: routes.routeInformationProvider,
+        );
+      },
     );
   }
 }

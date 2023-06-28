@@ -67,7 +67,7 @@ class PadraoInput extends StatelessWidget {
           hintText: hintText,
           filled: true,
           // fillColor: Theme.of(context).textTheme.displaySmall,
-          hintStyle: Theme.of(context).textTheme.displaySmall,
+
           // errorStyle: UiTexto.erro,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,

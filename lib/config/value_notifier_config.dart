@@ -7,3 +7,6 @@ final ValueNotifier<DdiModel> currentDdi = ValueNotifier<DdiModel>(DdiModel(
   codigo: "BR",
   ddi: "+55",
 ));
+
+ValueNotifier<Brightness> currentTema = ValueNotifier(
+    WidgetsBinding.instance.platformDispatcher.platformBrightness);

@@ -24,8 +24,8 @@ class UiCor {
   static const Color input = Color(0xFFE9EDF0);
   static const Color inputEscuro = Color(0xFF26343D);
 
-  static const Color hint = Color(0xFF172027);
-  static const Color hintEscuro = Color(0xffE8EDF0);
+  static const Color hint = Color(0xFF55646E);
+  static const Color hintEscuro = Color(0xffE5EAED);
 
   static const Color navigationBar = Color(0xFFF7F8FA);
   static const Color navigationBarEscuro = Color(0xff0B141B);

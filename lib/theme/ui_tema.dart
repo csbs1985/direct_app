@@ -1,10 +1,31 @@
 import 'package:direct_app/theme/ui_cor.dart';
 import 'package:direct_app/theme/ui_texto.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 ValueNotifier<Brightness> currentTema = ValueNotifier(Brightness.light);
 
 class UiTema {
+  static definirTema() {
+    currentTema.value =
+        WidgetsBinding.instance.platformDispatcher.platformBrightness;
+    trocarTema();
+  }
+
+  static trocarTema() {
+    bool isEscuro = currentTema.value == Brightness.dark;
+
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: isEscuro ? UiCor.statusBarEscura : UiCor.statusBar,
+        systemNavigationBarColor:
+            isEscuro ? UiCor.navigationBarEscuro : UiCor.navigationBar,
+      ),
+    );
+
+    ThemeData();
+  }
+
   static ThemeData tema = ThemeData(
     appBarTheme: const AppBarTheme(
       backgroundColor: UiCor.appbar,
@@ -24,6 +45,8 @@ class UiTema {
       onSecondary: UiCor.textoEscuro,
     ),
     iconTheme: const IconThemeData(color: UiCor.icone),
+    inputDecorationTheme:
+        const InputDecorationTheme(hintStyle: UiTextoClaro.hint),
     navigationBarTheme: const NavigationBarThemeData(
       backgroundColor: UiCor.fundo,
       elevation: 0,

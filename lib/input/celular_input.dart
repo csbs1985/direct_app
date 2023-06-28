@@ -60,7 +60,6 @@ class CelularInput extends StatelessWidget {
           hintText: hintText,
           filled: true,
           fillColor: Theme.of(context).colorScheme.onPrimaryContainer,
-          hintStyle: Theme.of(context).textTheme.displaySmall,
           errorStyle: UiTexto.erro,
           contentPadding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
           border: UiBorda.celularInput,
