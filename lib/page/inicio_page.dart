@@ -28,7 +28,7 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
 
   void _iniciarChat() async {
     if (_formKey.currentState!.validate()) {
-      String completo = "${currentDdi.value.ddi} $telefone";
+      String completo = "${currentPais.value.ddi} $telefone";
       _telefoneClass.iniciarChat(completo);
     }
   }

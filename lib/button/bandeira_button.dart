@@ -47,7 +47,7 @@ class _BandeiraButtonState extends State<BandeiraButton> {
           borderRadius: UiBorda.telefoneButton,
         ),
         child: ValueListenableBuilder(
-          valueListenable: currentDdi,
+          valueListenable: currentPais,
           builder: (BuildContext context, PaisModel pais, _) {
             return Row(
               children: [

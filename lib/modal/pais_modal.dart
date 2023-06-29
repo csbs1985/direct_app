@@ -16,7 +16,7 @@ class PaisModal extends StatefulWidget {
 
 class _PaisModalState extends State<PaisModal> {
   void _selecionarPais(PaisModel item) {
-    setState(() => currentDdi.value = item);
+    setState(() => currentPais.value = item);
     Navigator.of(context).pop();
   }
 
@@ -37,7 +37,7 @@ class _PaisModalState extends State<PaisModal> {
                 return InkWell(
                   onTap: () => _selecionarPais(listaPais[index]),
                   child: Container(
-                    color: currentDdi.value.codigo == listaPais[index].codigo
+                    color: currentPais.value.codigo == listaPais[index].codigo
                         ? UiCor.principal
                         : null,
                     padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
