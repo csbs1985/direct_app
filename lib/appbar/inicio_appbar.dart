@@ -31,7 +31,7 @@ class _InicioAppbarState extends State<InicioAppbar> {
         ),
         IconeAppbarButton(
           callback: () => context.push(RoutesEnum.HISTORICO.value),
-          icone: Icons.history,
+          icone: Icons.auto_delete,
         ),
         IconeAppbarButton(
           callback: () => context.push(RoutesEnum.DOAR.value),

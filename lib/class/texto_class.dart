@@ -1,4 +1,4 @@
-import 'package:direct_app/model/ddi_model.dart';
+import 'package:direct_app/model/pais_model.dart';
 import 'package:intl/intl.dart';
 
 class TextoClass {
@@ -19,10 +19,5 @@ class TextoClass {
   List<PaisModel> ordenarPorNome(List<PaisModel> paises) {
     paises.sort((a, b) => a.nome.compareTo(b.nome));
     return paises;
-  }
-
-  List<dynamic> ordenarDataRegistro(List<dynamic> lista) {
-    lista.sort((a, b) => b['dataRegistro'].compareTo(a['dataRegistro']));
-    return lista;
   }
 }

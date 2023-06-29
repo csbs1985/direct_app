@@ -1,3 +1,4 @@
+import 'package:direct_app/theme/ui_borda.dart';
 import 'package:direct_app/theme/ui_cor.dart';
 import 'package:direct_app/theme/ui_texto.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,13 @@ class UiTema {
       onPrimary: UiCor.borda,
       onSecondary: UiCor.textoEscuro,
     ),
+    dialogTheme: DialogTheme(
+      actionsPadding: const EdgeInsets.all(16),
+      backgroundColor: UiCor.fundo,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(UiBorda.arredondada),
+      ),
+    ),
     iconTheme: const IconThemeData(color: UiCor.icone),
     inputDecorationTheme:
         const InputDecorationTheme(hintStyle: UiTextoClaro.hint),
@@ -84,6 +92,13 @@ class UiTema {
       secondary: UiCor.iconeEscuro,
       onPrimary: UiCor.bordaEscura,
       onSecondary: UiCor.texto,
+    ),
+    dialogTheme: DialogTheme(
+      actionsPadding: const EdgeInsets.all(16),
+      backgroundColor: UiCor.fundoEscuro,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(UiBorda.arredondada),
+      ),
     ),
     iconTheme: const IconThemeData(color: UiCor.iconeEscuro),
     navigationBarTheme: const NavigationBarThemeData(

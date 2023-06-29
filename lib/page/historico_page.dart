@@ -5,8 +5,10 @@ import 'package:direct_app/class/texto_class.dart';
 import 'package:direct_app/hive/historico_hive.dart';
 import 'package:direct_app/text/texto2_text.dart';
 import 'package:direct_app/text/texto_text.dart';
+import 'package:direct_app/dialog/dialog_widget.dart';
 import 'package:direct_app/widget/historico_vazio_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
 class HistoricoPage extends StatefulWidget {
@@ -21,35 +23,60 @@ class _HistoricoPageState extends State<HistoricoPage> {
   final TelefoneClass _telefoneClass = TelefoneClass();
   final TextoClass _textoClass = TextoClass();
 
-  List<dynamic> _listaHive = [];
+  final _historicoBox = Hive.box('historico');
+
+  List<Map<String, dynamic>> _listaHistorico = [];
 
   @override
   void initState() {
-    _listaHive = _historicoHive.pegarHistorico()?.toList();
-    _listaHive = _textoClass.ordenarDataRegistro(_listaHive);
     super.initState();
+    setState(() => _listaHistorico = _telefoneClass.atualizarItens());
   }
 
-  void _iniciarChat(String telefone) async {
-    _telefoneClass.iniciarChat(telefone, false);
+  void _iniciarChat(String telefone) {
+    _telefoneClass.iniciarChat(telefone);
+    setState(() => _listaHistorico = _telefoneClass.atualizarItens());
+  }
+
+  void _deletarItem(item) {
+    _historicoBox.delete(item);
+    setState(() => _listaHistorico = _telefoneClass.atualizarItens());
+  }
+
+  Future<void> _deletarTudo() async {
+    Navigator.of(context).pop();
+    await _historicoHive.deletarHistorico();
+    setState(() => _listaHistorico = _telefoneClass.atualizarItens());
+  }
+
+  Future<void> _showAlertDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return OpcoesDialog(callback: () => _deletarTudo());
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HistoricoAppbar(callback: () => {}),
+      appBar: HistoricoAppbar(callback: () => _showAlertDialog()),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-          child: _listaHive.isEmpty
+          child: _listaHistorico.isEmpty
               ? const HistoricoVazioWidget()
               : ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: _listaHive.length,
-                  itemBuilder: (context, index) {
+                  itemCount: _listaHistorico.length,
+                  itemBuilder: (_, int index) {
+                    final currentItem = _listaHistorico[index];
+
                     return InkWell(
-                      onTap: () => _iniciarChat(_listaHive[index]['numero']),
+                      onTap: () => _iniciarChat(currentItem['numero']),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 16),
                         child: Row(
@@ -59,22 +86,22 @@ class _HistoricoPageState extends State<HistoricoPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   TextoText(
-                                    texto: _listaHive[index]['numero'],
+                                    texto: currentItem['numero'],
                                   ),
                                   Texto2Text(
                                     texto: _textoClass.formatarData(
-                                        _listaHive[index]['dataRegistro']),
+                                        currentItem['dataRegistro']),
                                   ),
                                 ],
                               ),
                             ),
                             IconeButton(
                               callback: () =>
-                                  Share.share(_listaHive[index]['numero']),
+                                  Share.share(currentItem['numero']),
                               icone: Icons.share,
                             ),
                             IconeButton(
-                              callback: () => _listaHive.removeAt(index),
+                              callback: () => _deletarItem(currentItem['key']),
                               icone: Icons.delete,
                             ),
                           ],

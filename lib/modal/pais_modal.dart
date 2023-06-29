@@ -2,7 +2,7 @@ import 'package:direct_app/appbar/modal_appbar.dart';
 import 'package:direct_app/class/texto_class.dart';
 import 'package:direct_app/config/value_notifier_config.dart';
 import 'package:direct_app/mock/lista_pais.dart';
-import 'package:direct_app/model/ddi_model.dart';
+import 'package:direct_app/model/pais_model.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:direct_app/theme/ui_cor.dart';
 import 'package:direct_app/theme/ui_tamanho.dart';

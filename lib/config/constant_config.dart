@@ -17,6 +17,9 @@ const String DOAR_DESCRICAO =
     'Charles Santos';
 
 const String HISTORICO = "Histórico";
+const String HISTORICO_DELETAR = "Deletar histórico";
+const String HISTORICO_DELETAR_DESCRICAO =
+    "Tem certeza que deseja deletar todo o histórico de uso?";
 const String HISTORICO_VAZIO =
     "Faça uso do nosso aplicativo para visualizar o seu histórico de maneira prática e intuitiva.";
 
@@ -29,9 +32,13 @@ const String INICIO_DESCRICAO =
 
 const String INICIO_HINT = "11 98765 4321";
 
+const String NAO = "Não";
+
 const String PIX_COPIADO = "Chave Pix copiada para a àrea de transferência";
 const String PIX_CODIGO = "7faa6851-5f31-45c8-831c-fbfafc47d3f9";
 
 const String SELECIONE = "Selecione";
+
+const String SIM_DELETAR = "Sim, deletar";
 
 const String SLOGAN = "Direct for WhatsApp";

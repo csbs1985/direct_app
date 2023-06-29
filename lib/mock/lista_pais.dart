@@ -1,4 +1,4 @@
-import 'package:direct_app/model/ddi_model.dart';
+import 'package:direct_app/model/pais_model.dart';
 
 final List<PaisModel> listaPais = [
   PaisModel(

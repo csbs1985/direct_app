@@ -27,7 +27,7 @@ class HistoricoAppbar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconeAppbarButton(
           callback: () => _callback!(),
-          icone: Icons.delete,
+          icone: Icons.auto_delete,
         )
       ],
     );

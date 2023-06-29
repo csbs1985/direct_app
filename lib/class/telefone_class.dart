@@ -1,4 +1,5 @@
 import 'package:direct_app/hive/historico_hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 
@@ -6,12 +7,15 @@ class TelefoneClass {
   final HistoricoHive _historicoHive = HistoricoHive();
   final Uuid uuid = const Uuid();
 
-  void iniciarChat(String telefone, bool salvar) async {
+  final _historicoBox = Hive.box('historico');
+
+  void iniciarChat(String telefone) async {
     String telefoneChat = removeCaracteres(telefone);
     Uri url = Uri.parse('whatsapp://send?phone=$telefoneChat');
 
     if (await launchUrl(url)) {
-      if (salvar) salvarHistoricoHive(telefone);
+      salvarHistoricoHive(telefone);
+      atualizarItens();
     }
   }
 
@@ -26,11 +30,13 @@ class TelefoneClass {
   }
 
   void salvarHistoricoHive(String telefone) {
-    _historicoHive.salvarHistorico({
+    Map<String, dynamic> item = {
       "numero": telefone,
       "dataRegistro": DateTime.now().toString(),
       "idHistorico": uuid.v4(),
-    });
+    };
+
+    _historicoHive.salvarHistorico(item);
   }
 
   String formatarTelefone(int telefone) {
@@ -43,5 +49,19 @@ class TelefoneClass {
     } else {
       return '${phoneNumber.substring(0, 4)} ${phoneNumber.substring(4)}';
     }
+  }
+
+  List<Map<String, dynamic>> atualizarItens() {
+    final data = _historicoBox.keys.map((key) {
+      final item = _historicoBox.get(key);
+      return {
+        "key": key,
+        "numero": item["numero"],
+        "dataRegistro": item["dataRegistro"],
+        "idHistorico": item["idHistorico"],
+      };
+    }).toList();
+
+    return data.reversed.toList();
   }
 }

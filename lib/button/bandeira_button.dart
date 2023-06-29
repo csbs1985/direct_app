@@ -1,6 +1,6 @@
 import 'package:direct_app/config/value_notifier_config.dart';
 import 'package:direct_app/modal/pais_modal.dart';
-import 'package:direct_app/model/ddi_model.dart';
+import 'package:direct_app/model/pais_model.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:direct_app/theme/ui_borda.dart';
 import 'package:direct_app/theme/ui_cor.dart';
