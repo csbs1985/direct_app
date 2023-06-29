@@ -48,12 +48,12 @@ class _BandeiraButtonState extends State<BandeiraButton> {
         ),
         child: ValueListenableBuilder(
           valueListenable: currentDdi,
-          builder: (BuildContext context, PaisModel ddi, _) {
+          builder: (BuildContext context, PaisModel pais, _) {
             return Row(
               children: [
-                TextoText(texto: ddi.bandeira),
+                TextoText(texto: pais.bandeira),
                 const SizedBox(width: 8),
-                TextoText(texto: ddi.ddi),
+                TextoText(texto: pais.ddi),
               ],
             );
           },

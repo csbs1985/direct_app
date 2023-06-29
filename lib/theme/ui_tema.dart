@@ -56,6 +56,10 @@ class UiTema {
         borderRadius: BorderRadius.circular(UiBorda.arredondada),
       ),
     ),
+    dividerTheme: const DividerThemeData(
+      color: UiCor.borda,
+      thickness: 0.5,
+    ),
     iconTheme: const IconThemeData(color: UiCor.icone),
     inputDecorationTheme:
         const InputDecorationTheme(hintStyle: UiTextoClaro.hint),
@@ -99,6 +103,10 @@ class UiTema {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(UiBorda.arredondada),
       ),
+    ),
+    dividerTheme: const DividerThemeData(
+      color: UiCor.bordaEscura,
+      thickness: 0.5,
     ),
     iconTheme: const IconThemeData(color: UiCor.iconeEscuro),
     navigationBarTheme: const NavigationBarThemeData(

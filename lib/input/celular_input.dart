@@ -55,7 +55,7 @@ class CelularInput extends StatelessWidget {
           FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
           LengthLimitingTextInputFormatter(11),
           MaskTextInputFormatter(
-            mask: '(##) ##### ####',
+            mask: '(##) #####-####',
             type: MaskAutoCompletionType.lazy,
           )
         ],

@@ -19,6 +19,7 @@ class _InicioAppbarState extends State<InicioAppbar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: Text(
         IDENTIDADE,
         style: Theme.of(context).textTheme.labelMedium,
@@ -26,12 +27,12 @@ class _InicioAppbarState extends State<InicioAppbar> {
       actions: [
         IconeAppbarButton(
           callback: () => Share.share(
-              "Esta é minha conta whatsapp https://api.whatsapp.com/send?1=pt_BR&phone=5511979837936"),
+              "$COMPARTILHAR_WHATSAPP https://api.whatsapp.com/send?1=pt_BR&phone=5511979837936"),
           icone: Icons.contact_phone,
         ),
         IconeAppbarButton(
           callback: () => context.push(RoutesEnum.HISTORICO.value),
-          icone: Icons.auto_delete,
+          icone: Icons.schedule,
         ),
         IconeAppbarButton(
           callback: () => context.push(RoutesEnum.DOAR.value),

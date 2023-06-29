@@ -1,5 +1,4 @@
 import 'package:direct_app/appbar/modal_appbar.dart';
-import 'package:direct_app/class/texto_class.dart';
 import 'package:direct_app/config/value_notifier_config.dart';
 import 'package:direct_app/mock/lista_pais.dart';
 import 'package:direct_app/model/pais_model.dart';
@@ -16,17 +15,7 @@ class PaisModal extends StatefulWidget {
 }
 
 class _PaisModalState extends State<PaisModal> {
-  final TextoClass _textoClass = TextoClass();
-
-  List<PaisModel> _listaPaises = [];
-
-  @override
-  void initState() {
-    _listaPaises = _textoClass.ordenarPorNome(listaPais);
-    super.initState();
-  }
-
-  void _selecionarDdi(PaisModel item) {
+  void _selecionarPais(PaisModel item) {
     setState(() => currentDdi.value = item);
     Navigator.of(context).pop();
   }
@@ -43,23 +32,23 @@ class _PaisModalState extends State<PaisModal> {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: _listaPaises.length,
+              itemCount: listaPais.length,
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: () => _selecionarDdi(_listaPaises[index]),
+                  onTap: () => _selecionarPais(listaPais[index]),
                   child: Container(
-                    color: currentDdi.value.codigo == _listaPaises[index].codigo
+                    color: currentDdi.value.codigo == listaPais[index].codigo
                         ? UiCor.principal
                         : null,
                     padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                     height: UiTamanho.lista,
                     child: Row(
                       children: [
-                        TextoText(texto: _listaPaises[index].bandeira),
+                        TextoText(texto: listaPais[index].bandeira),
                         const SizedBox(width: 16),
                         Expanded(
-                            child: TextoText(texto: _listaPaises[index].nome)),
-                        TextoText(texto: _listaPaises[index].ddi),
+                            child: TextoText(texto: listaPais[index].nome)),
+                        TextoText(texto: listaPais[index].ddi),
                       ],
                     ),
                   ),
