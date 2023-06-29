@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class CelularInput extends StatelessWidget {
+class TelefoneInput extends StatelessWidget {
   final bool? autoFocus;
   final TextEditingController? controller;
   final Function callback;
@@ -18,7 +18,7 @@ class CelularInput extends StatelessWidget {
   final int? maxLines;
   final String? Function(String?)? validator;
 
-  const CelularInput({
+  const TelefoneInput({
     Key? key,
     this.autoFocus = false,
     this.controller,
@@ -66,9 +66,9 @@ class CelularInput extends StatelessWidget {
           fillColor: Theme.of(context).colorScheme.onPrimaryContainer,
           errorStyle: UiTexto.erro,
           contentPadding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
-          border: UiBorda.celularInput,
-          enabledBorder: UiBorda.celularInput,
-          focusedBorder: UiBorda.celularInput,
+          border: UiBorda.TelefoneInput,
+          enabledBorder: UiBorda.TelefoneInput,
+          focusedBorder: UiBorda.TelefoneInput,
         ),
       ),
     );

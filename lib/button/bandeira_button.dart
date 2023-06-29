@@ -44,7 +44,7 @@ class _BandeiraButtonState extends State<BandeiraButton> {
           color: isPressed
               ? UiCor.principal
               : Theme.of(context).colorScheme.onPrimaryContainer,
-          borderRadius: UiBorda.celularButton,
+          borderRadius: UiBorda.telefoneButton,
         ),
         child: ValueListenableBuilder(
           valueListenable: currentDdi,

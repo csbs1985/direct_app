@@ -1,8 +1,8 @@
 const String CANCELAR = "Cancelar";
 
-const String CELULAR_INVALIDO = "número de celular não é válido";
-const String CELULAR_OBRIGATORIO = "insira o número de telefone";
-const String CELULAR_TAMANHO = "tamanho do número inválido";
+const String TELEFONE_INVALIDO = "número de telefone não é válido";
+const String TELEFONE_OBRIGATORIO = "insira o número de telefone";
+const String TELEFONE_TAMANHO = "tamanho do número inválido";
 
 const String COMO_USAR = "Como usar";
 
@@ -32,7 +32,7 @@ const String IDENTIDADE = "Direct";
 const String INICAR_CHAT = "Iniciar chat";
 
 const String INICIO_DESCRICAO =
-    'Selecione o código do país ou região, informe o número de telefone com o DDD (se aplicável) e clique no botão "Iniciar Chat"';
+    'Selecione o código do país ou região, informe o número de telefone com o DDD (se aplicável) e clique no botão "Iniciar Chat".';
 
 const String INICIO_HINT = "11 98765 4321";
 

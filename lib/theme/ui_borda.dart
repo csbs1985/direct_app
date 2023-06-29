@@ -5,7 +5,7 @@ class UiBorda {
   static const double quadrada = 0;
   static const double arredondada = 8;
 
-  static OutlineInputBorder celularInput = const OutlineInputBorder(
+  static OutlineInputBorder TelefoneInput = const OutlineInputBorder(
     borderSide: BorderSide.none,
     borderRadius: BorderRadius.only(
       topLeft: Radius.circular(UiBorda.quadrada),
@@ -15,7 +15,7 @@ class UiBorda {
     ),
   );
 
-  static BorderRadius celularButton = const BorderRadius.only(
+  static BorderRadius telefoneButton = const BorderRadius.only(
     topLeft: Radius.circular(UiBorda.arredondada),
     topRight: Radius.circular(UiBorda.quadrada),
     bottomRight: Radius.circular(UiBorda.quadrada),

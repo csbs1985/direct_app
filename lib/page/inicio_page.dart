@@ -5,7 +5,7 @@ import 'package:direct_app/button/segundo_button.dart';
 import 'package:direct_app/class/telefone_class.dart';
 import 'package:direct_app/config/constant_config.dart';
 import 'package:direct_app/config/value_notifier_config.dart';
-import 'package:direct_app/input/celular_input.dart';
+import 'package:direct_app/input/telefone_input.dart';
 import 'package:direct_app/mixin/validator_mixin.dart';
 import 'package:direct_app/text/texto2_text.dart';
 import 'package:direct_app/text/texto_text.dart';
@@ -62,14 +62,14 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
                     children: [
                       const BandeiraButton(),
                       Expanded(
-                        child: CelularInput(
+                        child: TelefoneInput(
                           controller: _controller,
                           callback: (value) => setState(() => telefone = value),
                           hintText: INICIO_HINT,
                           keyboardType: TextInputType.phone,
                           validator: (value) => combinarValidacao([
                             () => inNotEmpty(value!),
-                            () => tamanhoCelular(value!),
+                            () => tamanhoTelefone(value!),
                           ]),
                         ),
                       ),
