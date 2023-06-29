@@ -16,6 +16,10 @@ const String DOAR_DESCRICAO =
     'Com gratidão e um sorriso, \n\n'
     'Charles Santos';
 
+const String HISTORICO = "Histórico";
+const String HISTORICO_VAZIO =
+    "Faça uso do nosso aplicativo para visualizar o seu histórico de maneira prática e intuitiva.";
+
 const String IDENTIDADE = "Direct";
 
 const String INICAR_CHAT = "Iniciar chat";
@@ -30,6 +34,4 @@ const String PIX_CODIGO = "7faa6851-5f31-45c8-831c-fbfafc47d3f9";
 
 const String SELECIONE = "Selecione";
 
-const String HISTORICO = "Histórico";
-const String HISTORICO_VAZIO =
-    "Faça uso do nosso aplicativo para visualizar o seu histórico de maneira prática e intuitiva.";
+const String SLOGAN = "Direct for WhatsApp";
