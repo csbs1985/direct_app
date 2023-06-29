@@ -2,12 +2,11 @@ import 'package:direct_app/class/routes_class.dart';
 import 'package:direct_app/page/doar_page.dart';
 import 'package:direct_app/page/historico_page.dart';
 import 'package:direct_app/page/inicio_page.dart';
-import 'package:direct_app/page/splash_screen_page.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter routes = GoRouter(
   debugLogDiagnostics: true,
-  initialLocation: RoutesEnum.SPLASH.value,
+  initialLocation: RoutesEnum.INICIO.value,
   routes: [
     GoRoute(
       path: RoutesEnum.DOAR.value,
@@ -31,14 +30,6 @@ final GoRouter routes = GoRouter(
         context: context,
         state: state,
         child: const InicioPage(),
-      ),
-    ),
-    GoRoute(
-      path: RoutesEnum.SPLASH.value,
-      pageBuilder: (context, state) => transicaoPaginas(
-        context: context,
-        state: state,
-        child: const SplashScreenPage(),
       ),
     ),
   ],

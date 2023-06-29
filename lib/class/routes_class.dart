@@ -24,8 +24,7 @@ CustomTransitionPage transicaoPaginas<T>({
 enum RoutesEnum {
   DOAR('/doar'),
   HISTORICO('/historico'),
-  INICIO('/inicio'),
-  SPLASH('/splash');
+  INICIO('/inicio');
 
   final String value;
   const RoutesEnum(this.value);
