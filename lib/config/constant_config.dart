@@ -1,8 +1,6 @@
-const String CANCELAR = "Cancelar";
+const String BY = "by Charles Santos";
 
-const String TELEFONE_INVALIDO = "número de telefone não é válido";
-const String TELEFONE_OBRIGATORIO = "insira o número de telefone";
-const String TELEFONE_TAMANHO = "tamanho do número inválido";
+const String CANCELAR = "Cancelar";
 
 const String COMO_USAR = "Como usar";
 
@@ -45,4 +43,8 @@ const String SELECIONE = "Selecione";
 
 const String SIM_DELETAR = "Sim, deletar";
 
-const String SLOGAN = "Direct for WhatsApp";
+const String SLOGAN = "for WhatsApp";
+
+const String TELEFONE_INVALIDO = "número de telefone não é válido";
+const String TELEFONE_OBRIGATORIO = "insira o número de telefone";
+const String TELEFONE_TAMANHO = "tamanho do número inválido";

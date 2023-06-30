@@ -34,7 +34,7 @@ flutter_launcher_icons: # flutter pub run flutter_launcher_icons
   android: "ic_launcher"
   ios: true
   remove_alpha_ios: true
-  color: "#FFFFFF"
+  color: "#06695F"
   image_path: assets/app/ic_launcher.png
 
 flutter:
