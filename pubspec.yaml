@@ -29,7 +29,6 @@ dev_dependencies:
 
   flutter_launcher_icons: ^0.13.1
   flutter_lints: ^2.0.1
-  flutter_native_splash: ^2.3.1
 
 flutter_launcher_icons: # flutter pub run flutter_launcher_icons
   android: "ic_launcher"
@@ -37,10 +36,6 @@ flutter_launcher_icons: # flutter pub run flutter_launcher_icons
   remove_alpha_ios: true
   color: "#FFFFFF"
   image_path: assets/app/ic_launcher.png
-
-flutter_native_splash: # dart run flutter_native_splash:create
-  color: "#121B22"
-  image: assets/app/ic_splash.png
 
 flutter:
   uses-material-design: true
