@@ -83,6 +83,7 @@ class UiTema {
       backgroundColor: UiCor.appbarEscura,
       elevation: 0,
       iconTheme: IconThemeData(color: UiCor.iconeAppBarEscuro),
+      titleSpacing: 0,
     ),
     bottomSheetTheme:
         const BottomSheetThemeData(backgroundColor: UiCor.fundoEscuro),

@@ -24,6 +24,7 @@ class _InicioAppbarState extends State<InicioAppbar> {
         IDENTIDADE,
         style: Theme.of(context).textTheme.labelMedium,
       ),
+      titleSpacing: 16,
       actions: [
         IconeAppbarButton(
           callback: () => Share.share(
