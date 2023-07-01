@@ -11,4 +11,8 @@ class HistoricoHive {
   Future<void> deletarHistorico() async {
     await _historicoBox.clear();
   }
+
+  Future<void> verificarHistorico() async {
+    await _historicoBox.clear();
+  }
 }
