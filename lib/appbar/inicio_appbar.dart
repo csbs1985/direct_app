@@ -36,7 +36,7 @@ class _InicioAppbarState extends State<InicioAppbar> {
         ),
         IconeAppbarButton(
           callback: () => context.push(RoutesEnum.DOAR.value),
-          icone: Icons.favorite,
+          icone: Icons.favorite_border,
         ),
       ],
     );

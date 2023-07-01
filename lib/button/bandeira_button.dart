@@ -39,7 +39,7 @@ class _BandeiraButtonState extends State<BandeiraButton> {
       onTap: () => _abrirModal(context),
       child: Container(
         height: UiTamanho.input,
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+        padding: const EdgeInsets.fromLTRB(16, 13, 8, 15),
         decoration: BoxDecoration(
           color: isPressed
               ? UiCor.principal
