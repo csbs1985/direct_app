@@ -28,7 +28,7 @@ class _InicioAppbarState extends State<InicioAppbar> {
         IconeAppbarButton(
           callback: () => Share.share(
               "$COMPARTILHAR_WHATSAPP https://api.whatsapp.com/send?1=pt_BR&phone=5511979837936"),
-          icone: Icons.contact_phone,
+          icone: Icons.contact_phone_outlined,
         ),
         IconeAppbarButton(
           callback: () => context.push(RoutesEnum.HISTORICO.value),
