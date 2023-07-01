@@ -1,5 +1,6 @@
 import 'package:direct_app/hive/historico_hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 
@@ -39,18 +40,6 @@ class TelefoneClass {
     _historicoHive.salvarHistorico(item);
   }
 
-  String formatarTelefone(int telefone) {
-    String phoneNumber = telefone.toString();
-
-    if (phoneNumber.startsWith('0800') || phoneNumber.startsWith('0300')) {
-      return '0800 ${phoneNumber.substring(4, 7)} ${phoneNumber.substring(7)}';
-    } else if (phoneNumber.startsWith('9')) {
-      return '9${phoneNumber.substring(1, 3)} ${phoneNumber.substring(3, 6)} ${phoneNumber.substring(6)}';
-    } else {
-      return '${phoneNumber.substring(0, 4)} ${phoneNumber.substring(4)}';
-    }
-  }
-
   List<Map<String, dynamic>> atualizarItens() {
     final data = _historicoBox.keys.map((key) {
       final item = _historicoBox.get(key);
@@ -63,5 +52,14 @@ class TelefoneClass {
     }).toList();
 
     return data.reversed.toList();
+  }
+
+  String formatarData(String value) {
+    DateTime dateTime = DateTime.parse(value);
+
+    String formattedDate =
+        DateFormat("dd MMM. 'de' yyyy 'às' HH'h'mm'm'").format(dateTime);
+
+    return formattedDate;
   }
 }

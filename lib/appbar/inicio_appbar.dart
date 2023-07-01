@@ -16,6 +16,11 @@ class InicioAppbar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _InicioAppbarState extends State<InicioAppbar> {
+  void _compartilharTelefone() {
+    Share.share(
+        "$COMPARTILHAR_WHATSAPP https://api.whatsapp.com/send?1=pt_BR&phone=5511979837936");
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -27,17 +32,16 @@ class _InicioAppbarState extends State<InicioAppbar> {
       titleSpacing: 16,
       actions: [
         IconeAppbarButton(
-          callback: () => Share.share(
-              "$COMPARTILHAR_WHATSAPP https://api.whatsapp.com/send?1=pt_BR&phone=5511979837936"),
-          icone: Icons.contact_phone_outlined,
+          callback: () => context.push(RoutesEnum.DOAR.value),
+          icone: Icons.favorite_border,
         ),
         IconeAppbarButton(
           callback: () => context.push(RoutesEnum.HISTORICO.value),
           icone: Icons.schedule,
         ),
         IconeAppbarButton(
-          callback: () => context.push(RoutesEnum.DOAR.value),
-          icone: Icons.favorite_border,
+          callback: () => _compartilharTelefone(),
+          icone: Icons.contact_phone_outlined,
         ),
       ],
     );

@@ -47,4 +47,3 @@ const String SLOGAN = "for WhatsApp";
 
 const String TELEFONE_INVALIDO = "número de telefone não é válido";
 const String TELEFONE_OBRIGATORIO = "insira o número de telefone";
-const String TELEFONE_TAMANHO = "tamanho do número inválido";

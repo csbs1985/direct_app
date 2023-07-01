@@ -1,11 +1,10 @@
 import 'package:direct_app/theme/ui_cor.dart';
+import 'package:direct_app/theme/ui_duracao.dart';
 import 'package:flutter/material.dart';
 import 'package:m_toast/m_toast.dart';
 
 class ToastClass {
   ShowMToast toast = ShowMToast();
-
-  int duracao = 3000;
 
   void erro({
     required BuildContext context,
@@ -18,7 +17,7 @@ class ToastClass {
       textColor: Theme.of(context).colorScheme.onSecondary,
       backgroundColor: UiCor.erro,
       alignment: Alignment.topCenter,
-      duration: duracao,
+      duration: UiDuracao.toast,
       width: double.infinity,
     );
   }
@@ -34,7 +33,7 @@ class ToastClass {
       textColor: Theme.of(context).colorScheme.onSecondary,
       backgroundColor: UiCor.sucesso,
       alignment: Alignment.topCenter,
-      duration: duracao,
+      duration: UiDuracao.toast,
       width: double.infinity,
     );
   }

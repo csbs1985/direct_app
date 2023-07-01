@@ -3,6 +3,7 @@ import 'package:direct_app/config/constant_config.dart';
 import 'package:direct_app/text/subtitulo_text.dart';
 import 'package:direct_app/text/texto2_text.dart';
 import 'package:direct_app/theme/ui_cor.dart';
+import 'package:direct_app/theme/ui_duracao.dart';
 import 'package:direct_app/theme/ui_icone.dart';
 import 'package:direct_app/theme/ui_imagem.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,11 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
+    _systemChrome();
+    _navegarInicio();
+  }
 
+  _systemChrome() {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarBrightness: Brightness.light,
@@ -29,12 +34,10 @@ class _SplashPageState extends State<SplashPage> {
       systemNavigationBarColor: UiCor.navigationBarEscuro,
       systemNavigationBarIconBrightness: Brightness.light,
     ));
-
-    _navegarInicio();
   }
 
   _navegarInicio() async {
-    await Future.delayed(const Duration(seconds: 1), () {
+    await Future.delayed(const Duration(seconds: UiDuracao.splash), () {
       context.push(RoutesEnum.INICIO.value);
     });
   }

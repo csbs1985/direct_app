@@ -8,7 +8,6 @@ class UiCor {
   static const Color bordaEscura = Color(0xFF2A3942);
 
   static const Color telefoneButton = Color(0xFFE9E8EC);
-  static const Color telefoneButtonEscuro = Color(0xFF2A3942);
 
   static const Color erro = Color(0xFFff4b4b);
 

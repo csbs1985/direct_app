@@ -1,7 +1,6 @@
 import 'package:direct_app/appbar/historico_appbar.dart';
 import 'package:direct_app/button/icone_button.dart';
 import 'package:direct_app/class/telefone_class.dart';
-import 'package:direct_app/class/texto_class.dart';
 import 'package:direct_app/hive/historico_hive.dart';
 import 'package:direct_app/text/texto2_text.dart';
 import 'package:direct_app/text/texto_text.dart';
@@ -21,7 +20,6 @@ class HistoricoPage extends StatefulWidget {
 class _HistoricoPageState extends State<HistoricoPage> {
   final HistoricoHive _historicoHive = HistoricoHive();
   final TelefoneClass _telefoneClass = TelefoneClass();
-  final TextoClass _textoClass = TextoClass();
 
   final _historicoBox = Hive.box('historico');
 
@@ -89,7 +87,7 @@ class _HistoricoPageState extends State<HistoricoPage> {
                                     texto: currentItem['numero'],
                                   ),
                                   Texto2Text(
-                                    texto: _textoClass.formatarData(
+                                    texto: _telefoneClass.formatarData(
                                         currentItem['dataRegistro']),
                                   ),
                                 ],

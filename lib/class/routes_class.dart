@@ -1,3 +1,4 @@
+import 'package:direct_app/theme/ui_duracao.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -9,7 +10,7 @@ CustomTransitionPage transicaoPaginas<T>({
   return CustomTransitionPage(
     key: state.pageKey,
     child: child,
-    transitionDuration: const Duration(milliseconds: 300),
+    transitionDuration: const Duration(milliseconds: UiDuracao.transicoPagina),
     transitionsBuilder: (context, animation, secondaryAnimation, child) =>
         SlideTransition(
       position: Tween<Offset>(

@@ -26,6 +26,11 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
 
   String telefone = "";
 
+  Future<bool> _onWillPop() {
+    SystemNavigator.pop();
+    return Future.value(false);
+  }
+
   void _iniciarChat() async {
     if (_formKey.currentState!.validate()) {
       String completo = "${currentPais.value.ddi} $telefone";
@@ -34,19 +39,20 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
   }
 
   void _limparNumero() {
-    setState(() {
-      telefone = "";
-      _controller.clear();
-    });
+    setState(() => telefone = "");
+    _controller.clear();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async {
-        SystemNavigator.pop();
-        return Future.value(false);
-      },
+      onWillPop: () => _onWillPop(),
       child: Scaffold(
         appBar: const InicioAppbar(),
         body: SingleChildScrollView(
@@ -96,7 +102,7 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
               ),
               const Divider(),
               const Padding(
-                padding: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                padding: EdgeInsets.all(16),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [

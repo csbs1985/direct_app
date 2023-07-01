@@ -4,6 +4,7 @@ import 'package:direct_app/model/pais_model.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:direct_app/theme/ui_borda.dart';
 import 'package:direct_app/theme/ui_cor.dart';
+import 'package:direct_app/theme/ui_duracao.dart';
 import 'package:direct_app/theme/ui_tamanho.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -16,10 +17,12 @@ class BandeiraButton extends StatefulWidget {
 }
 
 class _BandeiraButtonState extends State<BandeiraButton> {
+  bool isPressed = false;
+
   void _abrirModal(BuildContext context) {
     showCupertinoModalBottomSheet(
       expand: true,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: UiDuracao.modal),
       context: context,
       barrierColor: UiCor.overlay,
       shape: RoundedRectangleBorder(
@@ -27,8 +30,6 @@ class _BandeiraButtonState extends State<BandeiraButton> {
       builder: (context) => const PaisModal(),
     );
   }
-
-  bool isPressed = false;
 
   @override
   Widget build(BuildContext context) {

@@ -14,7 +14,7 @@ class HistoricoAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   final Function? _callback;
 
-  bool hasDataInHive() {
+  bool hasDadoHive() {
     final historicoBox = Hive.box('historico');
     return historicoBox.isNotEmpty;
   }
@@ -31,7 +31,7 @@ class HistoricoAppbar extends StatelessWidget implements PreferredSizeWidget {
         callback: () => Navigator.of(context).pop(),
       ),
       actions: [
-        if (hasDataInHive())
+        if (hasDadoHive())
           IconeAppbarButton(
             callback: () => _callback!(),
             icone: Icons.auto_delete,

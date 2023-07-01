@@ -9,7 +9,7 @@ class HistoricoVazioWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+      // padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: Container(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
         decoration: BoxDecoration(

@@ -43,9 +43,9 @@ class TelefoneInput extends StatelessWidget {
         fillColor: Theme.of(context).colorScheme.onPrimaryContainer,
         errorStyle: UiTexto.erro,
         contentPadding: const EdgeInsets.all(0),
-        border: UiBorda.TelefoneInput,
-        enabledBorder: UiBorda.TelefoneInput,
-        focusedBorder: UiBorda.TelefoneInput,
+        border: UiBorda.telefoneInputBorda,
+        enabledBorder: UiBorda.telefoneInputBorda,
+        focusedBorder: UiBorda.telefoneInputBorda,
       ),
     );
   }
