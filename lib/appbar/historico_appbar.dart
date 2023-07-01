@@ -1,16 +1,13 @@
 import 'package:direct_app/button/icone_appbar_button.dart';
 import 'package:direct_app/config/constant_config.dart';
-import 'package:direct_app/hive/historico_hive.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class HistoricoAppbar extends StatelessWidget implements PreferredSizeWidget {
-  final HistoricoHive _historicoHive = HistoricoHive();
-
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
-  HistoricoAppbar({
+  const HistoricoAppbar({
     super.key,
     required Function callback,
   }) : _callback = callback;
