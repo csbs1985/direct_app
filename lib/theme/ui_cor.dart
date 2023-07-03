@@ -49,4 +49,6 @@ class UiCor {
   static const Color principal = Color(0xFF00A884);
 
   static const Color sucesso = Color(0xFF00A884);
+
+  static const Color splash = Color(0xFFf2f2f2);
 }

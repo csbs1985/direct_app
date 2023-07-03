@@ -63,7 +63,7 @@ class _HistoricoPageState extends State<HistoricoPage> {
       appBar: HistoricoAppbar(callback: () => _showAlertDialog()),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+          padding: const EdgeInsets.all(16),
           child: _listaHistorico.isEmpty
               ? const HistoricoVazioWidget()
               : ListView.builder(

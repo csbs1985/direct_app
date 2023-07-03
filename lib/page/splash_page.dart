@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:direct_app/class/routes_class.dart';
 import 'package:direct_app/config/constant_config.dart';
 import 'package:direct_app/text/subtitulo_text.dart';
@@ -17,12 +19,18 @@ class SplashPage extends StatefulWidget {
   State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+
+  bool _showText = false;
+
   @override
   void initState() {
     super.initState();
     _systemChrome();
     _navegarInicio();
+    _iniciarAnimacao();
   }
 
   _systemChrome() {
@@ -41,6 +49,35 @@ class _SplashPageState extends State<SplashPage> {
     });
   }
 
+  _iniciarAnimacao() {
+    // Define a duração e o tipo de animação
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+
+    // Define a animação de deslocamento da imagem
+    _animation = Tween<Offset>(
+      begin: Offset.zero,
+      end: const Offset(0.0,
+          -0.1), // Ajuste o valor de -0.1 para controlar a distância do deslocamento
+    ).animate(_controller);
+
+    // Inicia a animação após 2 segundos
+    Timer(const Duration(seconds: 1), () {
+      setState(() {
+        _showText = true;
+        _controller.forward();
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,20 +91,45 @@ class _SplashPageState extends State<SplashPage> {
                 child: Column(
                   children: [
                     Expanded(child: Container()),
-                    SvgPicture.asset(UiIcone.logo, height: 80),
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(0, 16, 0, 8),
-                      child: SubtituloText(texto: IDENTIDADE),
+                    SlideTransition(
+                      position: _animation,
+                      child: SvgPicture.asset(
+                        UiIcone.logo,
+                        height: 70,
+                        colorFilter: const ColorFilter.mode(
+                          UiCor.splash,
+                          BlendMode.srcIn,
+                        ),
+                      ),
                     ),
-                    const Texto2Text(texto: SLOGAN),
+                    if (_showText)
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 16, 0, 8),
+                        child: AnimatedOpacity(
+                          opacity: _showText ? 1.0 : 0.0,
+                          duration: const Duration(milliseconds: 500),
+                          child: const SubtituloText(texto: IDENTIDADE),
+                        ),
+                      ),
+                    if (_showText)
+                      AnimatedOpacity(
+                        opacity: _showText ? 1.0 : 0.0,
+                        duration: const Duration(milliseconds: 500),
+                        child: const Texto2Text(texto: SLOGAN),
+                      ),
                     Expanded(child: Container()),
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 16),
-                child: Texto2Text(texto: BY),
-              ),
+              if (_showText)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  child: AnimatedOpacity(
+                    opacity: _showText ? 1.0 : 0.0,
+                    duration: const Duration(milliseconds: 500),
+                    child: const Texto2Text(texto: BY),
+                  ),
+                ),
             ],
           ),
         ),
