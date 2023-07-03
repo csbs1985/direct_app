@@ -5,7 +5,6 @@ import 'package:direct_app/text/texto2_text.dart';
 import 'package:direct_app/theme/ui_cor.dart';
 import 'package:direct_app/theme/ui_duracao.dart';
 import 'package:direct_app/theme/ui_icone.dart';
-import 'package:direct_app/theme/ui_imagem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -31,7 +30,7 @@ class _SplashPageState extends State<SplashPage> {
       statusBarColor: Colors.transparent,
       statusBarBrightness: Brightness.light,
       statusBarIconBrightness: Brightness.light,
-      systemNavigationBarColor: UiCor.navigationBarEscuro,
+      systemNavigationBarColor: UiCor.fundoEscuro,
       systemNavigationBarIconBrightness: Brightness.light,
     ));
   }
@@ -48,12 +47,7 @@ class _SplashPageState extends State<SplashPage> {
       body: Center(
         child: Container(
           width: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(UiImagem.backgroung),
-              fit: BoxFit.fitHeight,
-            ),
-          ),
+          color: UiCor.fundoEscuro,
           child: Column(
             children: [
               Expanded(
