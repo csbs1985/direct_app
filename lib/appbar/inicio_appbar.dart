@@ -41,7 +41,7 @@ class _InicioAppbarState extends State<InicioAppbar> {
         ),
         IconeAppbarButton(
           callback: () => _compartilharTelefone(),
-          icone: Icons.contact_phone_outlined,
+          icone: Icons.badge_outlined,
         ),
       ],
     );

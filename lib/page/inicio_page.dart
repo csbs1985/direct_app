@@ -11,6 +11,7 @@ import 'package:direct_app/text/texto2_text.dart';
 import 'package:direct_app/text/texto_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class InicioPage extends StatefulWidget {
   const InicioPage({super.key});
@@ -24,7 +25,27 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
   final TelefoneClass _telefoneClass = TelefoneClass();
   final TextEditingController _controller = TextEditingController();
 
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+    buildSignature: 'Unknown',
+    installerStore: 'Unknown',
+  );
+
   String telefone = "";
+
+  @override
+  void initState() {
+    _definirVersao();
+    super.initState();
+  }
+
+  Future<void> _definirVersao() async {
+    final info = await PackageInfo.fromPlatform();
+    setState(() => _packageInfo = info);
+  }
 
   Future<bool> _onWillPop() {
     SystemNavigator.pop();
@@ -120,6 +141,22 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
                     ),
                   ],
                 ),
+              ),
+            ],
+          ),
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                BY,
+                style: Theme.of(context).textTheme.labelSmall,
+              ),
+              Text(
+                'v${_packageInfo.version}',
+                style: Theme.of(context).textTheme.labelSmall,
               ),
             ],
           ),

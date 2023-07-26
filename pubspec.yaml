@@ -2,7 +2,7 @@ name: direct_app
 description: A new Flutter project.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.1.0+1
 
 environment:
   sdk: ">=3.0.2 <4.0.0"
@@ -19,6 +19,7 @@ dependencies:
   m_toast: ^0.2.0
   mask_text_input_formatter: ^2.4.0
   modal_bottom_sheet: ^3.0.0-pre
+  package_info_plus: ^4.0.2
   share_plus: ^7.0.2
   url_launcher: ^6.1.11
   uuid: ^3.0.7
