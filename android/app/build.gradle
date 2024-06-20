@@ -1,3 +1,9 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -6,19 +12,10 @@ if (localPropertiesFile.exists()) {
     }
 }
 
-def flutterRoot = localProperties.getProperty('flutter.sdk')
-if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
-}
-
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
-
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
@@ -27,7 +24,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.charles.santos.direct_app"
+    namespace "charles.santos.online.direct_app"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
@@ -45,10 +42,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.charles.santos.direct_app"
+        applicationId "charles.santos.online.direct_app"
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
-        versionCode 2
+        versionCode 1
         versionName flutterVersionName
         multiDexEnabled true
     }
@@ -73,7 +70,6 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     def multidex_version = "2.0.1"
     implementation "androidx.multidex:multidex:$multidex_version"
     implementation "androidx.core:core-splashscreen:1.0.0"

@@ -1,4 +1,4 @@
-package com.charles.santos.direct_app
+package charles.santos.online.direct_app
 
 import io.flutter.embedding.android.FlutterActivity
 

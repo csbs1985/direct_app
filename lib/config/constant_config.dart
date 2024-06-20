@@ -1,4 +1,4 @@
-const String BY = "por Charles SBS";
+const String BY = "by Charles Santos";
 
 const String CANCELAR = "Cancelar";
 
