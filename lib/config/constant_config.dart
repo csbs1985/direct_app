@@ -32,7 +32,7 @@ const String INICAR_CHAT = "Iniciar chat";
 const String INICIO_DESCRICAO =
     'Selecione o código do país ou região, informe o número de telefone com o DDD (se aplicável) e clique no botão "Iniciar Chat".';
 
-const String INICIO_HINT = "11 98765 4321";
+const String INICIO_HINT = "11987654321";
 
 const String NAO = "Não";
 

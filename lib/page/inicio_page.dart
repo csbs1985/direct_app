@@ -94,10 +94,10 @@ class _InicioPageState extends State<InicioPage> with ValidatorMixin {
                           callback: (value) => setState(() => telefone = value),
                           hintText: INICIO_HINT,
                           keyboardType: TextInputType.phone,
-                          validator: (value) => combinarValidacao([
-                            () => inNotEmpty(value!),
-                            () => tamanhoTelefone(value!),
-                          ]),
+                          // validator: (value) => combinarValidacao([
+                          //   () => inNotEmpty(value!),
+                          //   () => tamanhoTelefone(value!),
+                          // ]),
                         ),
                       ),
                     ],
